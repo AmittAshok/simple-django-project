@@ -1,6 +1,14 @@
 FROM python:3.9
 
-WORKDIR app
+# Install build dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libffi-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev
+
+WORKDIR /app
 
 COPY . /app
 
